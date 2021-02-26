@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+        <Kennel />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
