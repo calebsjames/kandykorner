@@ -3,7 +3,7 @@ import { ProductContext } from "./ProductProvider.js"
 import "./Product.css"
 import { ProductCard } from "./Product.js"
 import { ProductTypeContext } from "../productType/ProductTypeProvider.js"
-
+import { useHistory } from "react-router-dom"
 export const ProductList = () => {
   
   // This state changes when `getProducts()` is invoked below
@@ -16,8 +16,10 @@ export const ProductList = () => {
     .then(getProducts)
   }, [])
 
+  const history = useHistory()
 
   return (
+    <>
     <div className="products">
       {products.map(productObject => {
           const productType = productTypes.find(pt => pt.id === productObject.productTypeId)
@@ -26,7 +28,8 @@ export const ProductList = () => {
           product={productObject} 
           />
         })
-      }
+    }
     </div>
+    </>
   )
 }
